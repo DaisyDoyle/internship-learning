@@ -5,10 +5,12 @@ packages: |
   NumPy - array processing. Good for mathematical functions.
   yaml - markup language. Easy way of improving code efficiency when displaying lots of information, easy to add& modify
   time - personal preference, mostly used to improve user experience.
+  logging
 
 functional_programming: |
   Functional programming
   No repeat logic or side effects, look at using dictionaries and clear comments. Efficient.
+  Docstrings
 
 python_links: |
   Test output
