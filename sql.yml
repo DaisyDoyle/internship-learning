@@ -1,0 +1,132 @@
+what_is_sql: |
+  SQL stands for Structured Query Language, this is a Relational Database Management System (RDMS) and is used to
+  retrieve data from a warehouse.
+  Database -> tables -> columns -> records (rows)
+  This video explains SQL in a nutshell: https://www.youtube.com/watch?v=27axs9dO7AE
+
+ddl: |
+  DDL stands for Data Description Language, it is sometimes referred to as Data definition
+  This is used to create, define and modify database schema as well as defining the type and structure of data to be
+  stored in a database.
+  DDL commands consist of: CREATE, ALTER, DROP, TRUNCATE, COMMENT, RENAME.
+  Please see the commands section for more information on this.
+
+dml: |
+  Data Manipulation Language. These commands manipulate the data present in the database, this covers most sql commands.
+  DML commands are used to store, modify, retrieve, delete and update data in a database.
+  A few key examples are: SELECT, INSERT, UPDATE, DELETE, MERGE, CALL, EXPLAIN PLAN, LOCK TABLE.
+
+dbl: |
+  Database language. This is a generic term referring to DDL and DML.
+
+data_types: |
+  Each column in a database requires a name and data type. The main data types arw: string, numeric, date and time.
+  The specific data type names vary between the different SQL servers.
+
+  A few MySQL string examples:
+  CHAR(size) - fixed length string. Size is column length in characters, max length 255.
+  VARCHAR(size) - variable length string. Size is max column length in characters, max length is 65535.
+  BINARY() - Equal to CHAR() but stores binary byte strings. Size specifies column length in bytes.
+  TEXT(size) - string with max length 65,535 bytes.
+  BLOB(size) - Binary Large OBjects. Max length 255 bytes.
+  ENUM(val1, val2, val3, ...) - string object that only has one value from a list of possible values. Max list 65535.
+  SET(val1, val2, val3, ...) - string object that can have 0 or more values from a list of possible values. Max list 64.
+
+  MySQL numeric examples:
+  BIT(size) - number of bits per value as specified by 'size', maximum is 64.
+  INT(size) - integer. Size is max display width (255 characters).
+  BOOL - 0 is false, non-zero numbers true. Equal to BOOLEAN.
+  FLOAT(size, d) - Floating point number (decimal), size = number of digits, d = number of digits after the decimal point.
+  DOUBLE(size, d) - Normal-size floating point number, size = number of digits, d = no. of digits after the decimal point.
+  DECIMAL(size, d) - Exact fixed-point number, size = number of digits, d = number of digits after the decimal point.
+
+  MySQL date and time examples:
+  DATE - YYYY-MM-DD
+  TIME(fsp) - hh:mm:ss
+  DATETIME(fsp) - YYYY-MM-DD hh:mm:ss
+  TIMESTAMP(fsp) - number of seconds since 1970-01-01 00:00:00
+  YEAR - YYYY
+
+  For more information please see: https://www.w3schools.com/sql/sql_datatypes.asp
+
+index_partitioning: |
+  It is easier to split up large tables and indexes into smaller ones using index partitioning. This allows queries to
+  run faster. Benefits: access/transfer data subsets quickly and efficiently, maintenance operations can be performed
+  quicker as updates only target a small portion of the data, improve query performance. There are a few methods of
+  axhieving this (note these are not the query commands):
+
+  PARTITION FUNCTION - defines number of partitions and partition boundaries of the table.
+  PARTITION SCHEME - maps partitions of partition function to set of file groups. Allows backups on independent groups.
+  PARTITIONING COLUMN - column from table/index that partition function uses to partition the table.
+  ALIGNED INDEX - index built on same partition scheme as corresponding table, easy to switch between partitions.
+  PARTITIONING CLUSTERED INDEXES
+  PARTITIONING NON-CLUSTERED INDEXES
+  NON-ALIGNED INDEX - index partitioned independently from corresponding table, has different partition scheme to base
+  table.
+  PARTITION ELIMINATION - process of accessing only relevant partitions for the query.
+
+  Source: https://docs.microsoft.com/en-us/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-
+  server-ver15
+
+sql_commands: |
+  List of useful commands and brief explanations:
+
+  SELECT - extracts data from a database
+  SELECT DISTINCT - returns only distinct (different) vales.
+  SELECT INTO - copies data from one table into a new table.
+  SELECT TOP - specifies number of records from top of table to return. Useful for large databases.
+  WHERE - filters records, extracts records that fulfill a certain condition. Combine with AND, OR, NOT.
+  ORDER BY - sorts results in ascending order by default, use DESC for descending order.
+  GROUP BY - rows organised by total/avg/max/min/count values in column.
+  ALIAS - gives table/column a temporary name. Only exists for duration of query. Uses AS keyword.
+  JOIN - combine rows from multiple tables linked by a related column.
+  INNER JOIN - selects records with matching values in both tables.
+  LEFT JOIN - all records from table1 (left table), only matching records from table2 (right).
+  RIGHT JOIN - all records from table2 (right table), only matching records from table1 (left).
+  FULL JOIN - returns all records for both tables when there is a match in table1 and table2 records.
+  SELF JOIN - table joins with itself when part is an alias of the table.
+  HAVING - used as substitute for WHERE clause for when aggregate functions are in use.
+  PARTITION - divides large tables into smaller parts, this means queries can run faster.
+  CASE - returns value when first condition is met then stops running. Similar to IF and ELSE in python.
+
+  UPDATE - updates data in a database
+  DELETE - deletes data from a database
+  INSERT INTO - inserts new data into a database
+  CREATE DATABASE - creates a new database
+  ALTER DATABASE - modifies a database
+  CREATE TABLE - creates a new table
+  ALTER TABLE - modifies a table
+  DROP TABLE - deletes a table
+  CREATE INDEX - creates an index (search key)
+  DROP INDEX - deletes an index
+  For more info on database specific commands view: https://www.w3schools.com/sql/sql_create_db.asp
+
+  Functions:
+  MIN() - smallest value of selected column.
+  MAX() - largest value of selected column.
+  COUNT() - returns number of records matching criteria.
+  AVG() - returns average value of column.
+  SUM() - returns total sum of column.
+  NULL - no value. For MySQL use IFNULL() or COALESCE() to return an alternative value if expression is null.
+
+  Operators:
+  BETWEEN – Between a certain range
+  LIKE – Search for a pattern
+  IN – To specify multiple possible values for a column
+  <> != not equal to
+  EXISTS - used in subquery, returns TRUE if subquery returns one or more records.
+  AND - returns record if conditions separated by AND are true.
+  OR - returns record if conditions separated by OR are true.
+  NOT - returns record if conditions NOT TRUE.
+  ANY - condition is true if operation true for any values in range.
+  ALL - condition true if operation true for all values in range.
+  UNION - combine results of two or more SELECT statements, must have same no of columns, order and similar data types.
+  For information on mathematical operators view this link: https://www.w3schools.com/sql/sql_operators.asp
+
+  Please note my source for this information was the w3 schools sql website.
+
+sql_practice_links: |
+  Useful practice links:
+  W3 schools, tutorials: https://www.w3schools.com/sql/default.asp
+  Hackerrank challenges: https://www.hackerrank.com
+  Learn basic SQL in 10 minutes: https://www.youtube.com/watch?v=bEtnYWuo2Bw
