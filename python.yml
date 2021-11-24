@@ -1,0 +1,19 @@
+packages: |
+  Useful packages:
+  Pandas - analyse and build data sets, machiene learning. Very powerful. Used for data science.
+  Pytest - used to write small tests, appropriate for complex functions. Very important.
+  NumPy - array processing. Good for mathematical functions.
+  yaml - markup language. Easy way of improving code efficiency when displaying lots of information, easy to add& modify
+  time - personal preference, mostly used to improve user experience.
+
+functional_programming: |
+  Functional programming
+  No repeat logic or side effects, look at using dictionaries and clear comments. Efficient.
+
+python_links: |
+  Test output
+  Hacker rank challenges
+  venv
+  Videos: corey, computerphile
+  breakpoints --- testing section?
+  debug section in testing?
